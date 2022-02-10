@@ -48,12 +48,17 @@ const remove = (index) => {
 const addTodo = (item) => {
   array.push({ text: item })
   render(array)
+  input.value = ''
 }
 const button = document.querySelector('button')
 const input = document.querySelector('input')
 
 button.addEventListener('click', () => {
-  addTodo(input.value)
+  if (input.value != '') {
+    addTodo(input.value)
+  } else {
+    input.value = ''
+  }
 })
 
 const checkTodo = (index) => {
